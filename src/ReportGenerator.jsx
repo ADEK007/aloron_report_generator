@@ -5,7 +5,7 @@ import { useMutation, useQuery } from 'convex/react';
 import { api } from '../convex/_generated/api';
 
 const LOCATION_OPTIONS = [
-  'অফিস (ধানমন্ডি)',
+  'অফিস (নবীনগর)',
   'ঢাকা বিশ্ববিদ্যালয় (ঢাবি)',
   'জাহাঙ্গীরনগর বিশ্ববিদ্যালয় (জাবি)',
   'বুয়েট (BUET)',
@@ -17,6 +17,17 @@ const LOCATION_OPTIONS = [
   'সাভার এলাকা',
   'মিরপুর এলাকা',
   'উত্তরা এলাকা',
+  'শাহাবাগ',
+  'নীলক্ষেত',
+  'ফার্মগেইট',
+  'মোহাম্মদপুর',
+  'ধানমন্ডি',
+  'আগারগাঁও',
+  'বনানী',
+  'গুলশান',
+  'কলাবাগান',
+  'আশুলিয়া',
+  'কেরানীগঞ্জ',
   'কাস্টম / অন্যান্য'
 ];
 
@@ -346,22 +357,20 @@ export default function ReportGenerator() {
           <button
             type="button"
             onClick={() => setActiveTab('input')}
-            className={`flex-1 py-2.5 sm:py-2 px-3 rounded-xl text-xs sm:text-sm font-bold transition-all flex items-center justify-center gap-1.5 active:scale-[0.98] ${
-              activeTab === 'input'
-                ? 'bg-[#15803d] text-white shadow-xs'
-                : 'bg-slate-50 hover:bg-slate-100 text-slate-700 border border-slate-200'
-            }`}
+            className={`flex-1 py-2.5 sm:py-2 px-3 rounded-xl text-xs sm:text-sm font-bold transition-all flex items-center justify-center gap-1.5 active:scale-[0.98] ${activeTab === 'input'
+              ? 'bg-[#15803d] text-white shadow-xs'
+              : 'bg-slate-50 hover:bg-slate-100 text-slate-700 border border-slate-200'
+              }`}
           >
             <span>📝</span> ইনপুট ফর্ম
           </button>
           <button
             type="button"
             onClick={() => setActiveTab('preview')}
-            className={`flex-1 py-2.5 sm:py-2 px-3 rounded-xl text-xs sm:text-sm font-bold transition-all flex items-center justify-center gap-1.5 active:scale-[0.98] ${
-              activeTab === 'preview'
-                ? 'bg-[#15803d] text-white shadow-xs'
-                : 'bg-slate-50 hover:bg-slate-100 text-slate-700 border border-slate-200'
-            }`}
+            className={`flex-1 py-2.5 sm:py-2 px-3 rounded-xl text-xs sm:text-sm font-bold transition-all flex items-center justify-center gap-1.5 active:scale-[0.98] ${activeTab === 'preview'
+              ? 'bg-[#15803d] text-white shadow-xs'
+              : 'bg-slate-50 hover:bg-slate-100 text-slate-700 border border-slate-200'
+              }`}
           >
             <span>👁️</span> প্রিভিউ ও ডাউনলোড
           </button>
@@ -542,11 +551,10 @@ export default function ReportGenerator() {
                   ].map(([key, label]) => (
                     <label
                       key={key}
-                      className={`flex items-center gap-2.5 p-2.5 rounded-xl border cursor-pointer select-none transition ${
-                        reportTypes[key]
-                          ? 'bg-green-50/80 border-green-500 text-green-950 font-semibold'
-                          : 'bg-slate-50/70 border-slate-200 text-slate-700 hover:bg-slate-100'
-                      }`}
+                      className={`flex items-center gap-2.5 p-2.5 rounded-xl border cursor-pointer select-none transition ${reportTypes[key]
+                        ? 'bg-green-50/80 border-green-500 text-green-950 font-semibold'
+                        : 'bg-slate-50/70 border-slate-200 text-slate-700 hover:bg-slate-100'
+                        }`}
                     >
                       <input
                         type="checkbox"
@@ -1206,10 +1214,10 @@ export default function ReportGenerator() {
                       <th className="border border-black px-1.5 py-1.5 align-middle" style={{ width: '4%' }}>ক্র:</th>
                       <th className="border border-black px-2 py-1.5 align-middle" style={{ width: '19%' }}>মেশিন / ক্লায়েন্টের নাম</th>
                       <th className="border border-black px-2 py-1.5 align-middle" style={{ width: '23%' }}>
-                        মার্কেটিং কার্যক্রম (প্রদর্শনী/<br/>প্রেজেন্টেশন/আলোচনা)
+                        মার্কেটিং কার্যক্রম (প্রদর্শনী/<br />প্রেজেন্টেশন/আলোচনা)
                       </th>
                       <th className="border border-black px-2 py-1.5 align-middle" style={{ width: '20%' }}>
-                        যোগাযোগকৃত ব্যক্তি ও<br/>মোবাইল
+                        যোগাযোগকৃত ব্যক্তি ও<br />মোবাইল
                       </th>
                       <th className="border border-black px-2 py-1.5 align-middle" style={{ width: '16%' }}>ফলাফল / পরবর্তী পদক্ষেপ</th>
                       <th className="border border-black px-2 py-1.5 align-middle" style={{ width: '11%' }}>স্ট্যাটাস / মন্তব্য</th>
@@ -1310,8 +1318,8 @@ export default function ReportGenerator() {
                           {parseNum(parcelCost) + parseNum(otherCost) > 0
                             ? `${parseNum(parcelCost) + parseNum(otherCost)} ৳`
                             : parcelCost
-                            ? `${parcelCost} ৳`
-                            : '0 ৳'}
+                              ? `${parcelCost} ৳`
+                              : '0 ৳'}
                         </span>
                       </td>
                       <td colSpan={2} className="border border-black px-3 py-2 text-right align-middle">
